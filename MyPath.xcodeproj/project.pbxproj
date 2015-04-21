@@ -81,13 +81,10 @@
 		9CA593661AE715DB001C5521 /* MyPath */ = {
 			isa = PBXGroup;
 			children = (
-				9CA5936B1AE715DC001C5521 /* AppDelegate.h */,
-				9CA5936C1AE715DC001C5521 /* AppDelegate.m */,
-				9CA5936E1AE715DC001C5521 /* ViewController.h */,
-				9CA5936F1AE715DC001C5521 /* ViewController.m */,
-				9CA593711AE715DC001C5521 /* Main.storyboard */,
-				9CA593741AE715DC001C5521 /* Images.xcassets */,
-				9CA593761AE715DD001C5521 /* LaunchScreen.xib */,
+				9CA593901AE716AA001C5521 /* Images */,
+				9CA5938F1AE7169C001C5521 /* Controllers */,
+				9CA5938E1AE71656001C5521 /* User Interface */,
+				9CA5938D1AE7163E001C5521 /* Root */,
 				9CA593671AE715DC001C5521 /* Supporting Files */,
 			);
 			path = MyPath;
@@ -117,6 +114,41 @@
 				9CA593821AE715DD001C5521 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9CA5938D1AE7163E001C5521 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				9CA5936B1AE715DC001C5521 /* AppDelegate.h */,
+				9CA5936C1AE715DC001C5521 /* AppDelegate.m */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		9CA5938E1AE71656001C5521 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				9CA593711AE715DC001C5521 /* Main.storyboard */,
+				9CA593761AE715DD001C5521 /* LaunchScreen.xib */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		9CA5938F1AE7169C001C5521 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9CA5936E1AE715DC001C5521 /* ViewController.h */,
+				9CA5936F1AE715DC001C5521 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9CA593901AE716AA001C5521 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9CA593741AE715DC001C5521 /* Images.xcassets */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
