@@ -7,18 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController
+
+@interface ViewController : UIViewController<CLLocationManagerDelegate>
 /*! Outlet to start or stop main engine */
 @property (strong, nonatomic) IBOutlet UIButton *startStopButton;
 
 
-
-
-/*! Timer responsible to keep alive main pulse */
-@property (nonatomic,strong) NSTimer *timer;
-
-/*! Boolean flag to indicate engine is on */
+/*! Returns a Boolean value that indicates that engine status is running. */
 @property BOOL isOn;
 
 @end
