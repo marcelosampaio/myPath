@@ -164,10 +164,12 @@
 -(void)debug{
     NSMutableArray *locations=[self.database getLocations];
     
+    NSLog(@"locations count=%lu",(unsigned long)locations.count);
+    
     for (DatabaseRow *location in locations) {
         NSLog(@"latitude=%f    longitude=%f",location.latitude,location.longitude);
     }
-    
+//    [self.database removeLocations];
     
 }
 

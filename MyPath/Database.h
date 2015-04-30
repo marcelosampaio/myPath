@@ -22,5 +22,7 @@
 #pragma mark - Data Manipulation Methods
 -(void)insertLocation:(DatabaseRow *)location;
 -(NSMutableArray *)getLocations;
+-(void)removeLocations;
+
 
 @end

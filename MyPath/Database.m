@@ -120,44 +120,42 @@
     
     // Get timeline from database
     NSString *sql = [NSString stringWithFormat:@"select eventType, latitude, longitude, thoroughfare, postalCode, administrativeArea, country, eventDate from locations order by id"];
-    
-    NSLog(@"getLocations:     SQL=%@",sql);
-    
+
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(db, [sql UTF8String], -1, &statement, nil)==SQLITE_OK)
     {
         while(sqlite3_step(statement)==SQLITE_ROW)
         {
             // eventType
-            char *field1 = (char *) sqlite3_column_text(statement, 1);
+            char *field1 = (char *) sqlite3_column_text(statement, 0);
             NSString *stringEventType = [[NSString alloc] initWithUTF8String:field1];
             
             // latitude
-            char *field2 = (char *) sqlite3_column_text(statement, 2);
+            char *field2 = (char *) sqlite3_column_text(statement, 1);
             NSString *stringLatitude = [[NSString alloc] initWithUTF8String:field2];
             
             // longitude
-            char *field3 = (char *) sqlite3_column_text(statement, 3);
+            char *field3 = (char *) sqlite3_column_text(statement, 2);
             NSString *stringLongitude = [[NSString alloc] initWithUTF8String:field3];
             
             // thoroughfare
-            char *field4 = (char *) sqlite3_column_text(statement, 4);
+            char *field4 = (char *) sqlite3_column_text(statement, 3);
             NSString *stringThoroughfare = [[NSString alloc] initWithUTF8String:field4];
             
             // postalCode
-            char *field5 = (char *) sqlite3_column_text(statement, 5);
+            char *field5 = (char *) sqlite3_column_text(statement, 4);
             NSString *stringPostalCode = [[NSString alloc] initWithUTF8String:field5];
 
             // administrativeArea
-            char *field6 = (char *) sqlite3_column_text(statement, 6);
+            char *field6 = (char *) sqlite3_column_text(statement, 5);
             NSString *stringAdministrativeArea = [[NSString alloc] initWithUTF8String:field6];
 
             // country
-            char *field7 = (char *) sqlite3_column_text(statement, 7);
+            char *field7 = (char *) sqlite3_column_text(statement, 6);
             NSString *stringCountry = [[NSString alloc] initWithUTF8String:field7];
             
             // eventDate
-            char *field8 = (char *) sqlite3_column_text(statement, 8);
+            char *field8 = (char *) sqlite3_column_text(statement, 7);
             NSString *stringEventDate = [[NSString alloc] initWithUTF8String:field8];
             
             [locations addObject:[[DatabaseRow alloc]initWithEventType:[stringEventType intValue] latitude:[stringLatitude floatValue] longitude:[stringLongitude floatValue] thoroughfare:stringThoroughfare postalCode:stringPostalCode locality:stringPostalCode administrativeArea:stringAdministrativeArea country:stringCountry eventDate:stringEventDate]];
@@ -171,6 +169,31 @@
     // return data
     return locations;
 
+}
+
+-(void)removeLocations {
+    
+    // Open database
+    [self openDB];
+    
+    // error variable for database call
+    char *err;
+    
+    // insert sql string
+    NSString *sql=@"delete from locations";
+    NSLog(@"*** SQL = %@",sql);
+    
+    // execute database command
+    if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
+        sqlite3_close(db);
+        NSAssert(0, @"Database error - (removeLocations:) Method");
+        NSLog(@"Removal error");
+    }
+    
+    
+    
+    // Close database
+    [self closeDB];
 }
 
 
