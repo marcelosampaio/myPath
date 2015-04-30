@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DatabaseRow.h"
 
 #define DEFAULT_STRING_START_ACTION             @"S T A R T"
 #define DEFAULT_STRING_STOP_ACTION              @"S T O P"
@@ -27,11 +28,15 @@
 
 
 @synthesize isOn,startStopButton;
+@synthesize database;
 
 
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // database initial procedures
+    [self databaseInitialProcedures];
 
     // UI
     self.isOn=NO;
@@ -41,13 +46,14 @@
     self.startStopButton.backgroundColor=DEFAULT_COLOR_GREEN;
     self.view.backgroundColor=DEFAULT_COLOR_GREEN_ALPHA;
     
-    [self checkDeviceSize];
+    // Check device screen size and configure UI
+    [self configureUI];
     
     
 }
 
 #pragma mark - UI Helper
--(void)checkDeviceSize{
+-(void)configureUI{
     
     if (self.view.frame.size.height<=480) {
         // This is a 3.5" screen size
@@ -58,11 +64,7 @@
         } completion:^(BOOL finished) {
             // Completion
         }];
-        
-        
-        NSLog(@"did it!");
     }
-    
 }
 
 #pragma mark - UI Actions
@@ -109,28 +111,30 @@
 #pragma mark - Location Manager Delegate
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"location manager error=%@",error.description);
-
-    
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    
-    
-    CLLocation *location=[manager location];
-    
-    
-    NSLog(@"location manager did update locations   lat=%f   lon=%f",location.coordinate.latitude,location.coordinate.longitude);
-    
+
+    CLLocation *location=[manager location];    
     
     // Geocoder
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error==nil && placemarks.count>0) {
             placemark=placemarks.lastObject;
             
-            NSString *address=[NSString stringWithFormat:@"%@ %@ %@ %@ %@",placemark.thoroughfare,placemark.postalCode,placemark.locality,placemark.administrativeArea,placemark.country];
+//            NSString *address=[NSString stringWithFormat:@"%@ %@ %@ %@ %@",placemark.thoroughfare,placemark.postalCode,placemark.locality,placemark.administrativeArea,placemark.country];
             //            NSLog(@"%@ %@\n%@ %@\n%@\n%@",placemark.subThoroughfare,placemark.thoroughfare,placemark.postalCode,placemark.locality,placemark.administrativeArea,placemark.country);
             
-            NSLog(@"Address = %@",address);
+            
+            NSLog(@"              --> longitude=%f",location.coordinate.longitude);
+            
+            // format database row object
+            DatabaseRow *databaseRow=[[DatabaseRow alloc]initWithEventType:0 latitude:location.coordinate.latitude longitude:location.coordinate.longitude thoroughfare:placemark.thoroughfare postalCode:placemark.postalCode locality:@"" administrativeArea:placemark.administrativeArea country:placemark.country eventDate:nil];
+            
+            // insert row into location's database
+            [self.database insertLocation:databaseRow];
+            
+            
         }else {
             NSLog(@"Geocoder Error: %@",error.debugDescription);
         }
@@ -140,6 +144,15 @@
 }
 
 
+#pragma mark - DataBase Methods
+-(void)databaseInitialProcedures {
+    
+    self.database=[[Database alloc]init];
+    
+    // copy database from resource folder to documents folder
+    [self.database copyDatabaseToWritableFolder];
+    
+}
 
 #pragma mark - Status Bar
 -(BOOL)prefersStatusBarHidden{

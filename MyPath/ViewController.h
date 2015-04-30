@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "Database.h"
 
 
 @interface ViewController : UIViewController<CLLocationManagerDelegate>
@@ -17,6 +18,9 @@
 
 /*! Returns a Boolean value that indicates that engine status is running. */
 @property BOOL isOn;
+
+/*! Database Object */
+@property (nonatomic,strong) Database *database;
 
 @end
 
