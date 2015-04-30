@@ -17,12 +17,10 @@
 
 
 #pragma mark - Database Methods
-// open database
-//-(void) openDB;
-//-(void) closeDB;
 -(void) copyDatabaseToWritableFolder;
 
 #pragma mark - Data Manipulation Methods
 -(void)insertLocation:(DatabaseRow *)location;
+-(NSMutableArray *)getLocations;
 
 @end

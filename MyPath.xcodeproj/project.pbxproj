@@ -17,7 +17,7 @@
 		9CBFC8E51AF261F80050D307 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBFC8E41AF261F80050D307 /* libsqlite3.dylib */; };
 		9CBFC8ED1AF263720050D307 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFC8EC1AF263720050D307 /* Database.m */; };
 		9CBFC8F01AF2659E0050D307 /* DatabaseRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFC8EF1AF2659E0050D307 /* DatabaseRow.m */; };
-		9CBFC9F91AF2786D0050D307 /* MyPath.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CBFC9F81AF2757F0050D307 /* MyPath.db */; };
+		9CBFC9FB1AF2B5780050D307 /* MyPath.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CBFC9FA1AF2B5660050D307 /* MyPath.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 		9CBFC8EC1AF263720050D307 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		9CBFC8EE1AF2659E0050D307 /* DatabaseRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseRow.h; sourceTree = "<group>"; };
 		9CBFC8EF1AF2659E0050D307 /* DatabaseRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseRow.m; sourceTree = "<group>"; };
-		9CBFC9F81AF2757F0050D307 /* MyPath.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyPath.db; sourceTree = "<group>"; };
+		9CBFC9FA1AF2B5660050D307 /* MyPath.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyPath.db; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 		9CA593671AE715DC001C5521 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9CBFC9F81AF2757F0050D307 /* MyPath.db */,
+				9CBFC9FA1AF2B5660050D307 /* MyPath.db */,
 				9CA593681AE715DC001C5521 /* Info.plist */,
 				9CA593691AE715DC001C5521 /* main.m */,
 			);
@@ -269,7 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CBFC9F91AF2786D0050D307 /* MyPath.db in Resources */,
+				9CBFC9FB1AF2B5780050D307 /* MyPath.db in Resources */,
 				9CA593731AE715DC001C5521 /* Main.storyboard in Resources */,
 				9CA593781AE715DD001C5521 /* LaunchScreen.xib in Resources */,
 				9CA593751AE715DC001C5521 /* Images.xcassets in Resources */,

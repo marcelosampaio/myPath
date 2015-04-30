@@ -49,6 +49,11 @@
     // Check device screen size and configure UI
     [self configureUI];
     
+    // Debug functionality
+    [self debug];
+    
+    
+    
     
 }
 
@@ -120,14 +125,9 @@
     // Geocoder
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error==nil && placemarks.count>0) {
+
             placemark=placemarks.lastObject;
-            
-//            NSString *address=[NSString stringWithFormat:@"%@ %@ %@ %@ %@",placemark.thoroughfare,placemark.postalCode,placemark.locality,placemark.administrativeArea,placemark.country];
-            //            NSLog(@"%@ %@\n%@ %@\n%@\n%@",placemark.subThoroughfare,placemark.thoroughfare,placemark.postalCode,placemark.locality,placemark.administrativeArea,placemark.country);
-            
-            
-            NSLog(@"              --> longitude=%f",location.coordinate.longitude);
-            
+
             // format database row object
             DatabaseRow *databaseRow=[[DatabaseRow alloc]initWithEventType:0 latitude:location.coordinate.latitude longitude:location.coordinate.longitude thoroughfare:placemark.thoroughfare postalCode:placemark.postalCode locality:@"" administrativeArea:placemark.administrativeArea country:placemark.country eventDate:nil];
             
@@ -157,6 +157,18 @@
 #pragma mark - Status Bar
 -(BOOL)prefersStatusBarHidden{
     return YES;
+}
+
+
+#pragma mark - Debug Facility
+-(void)debug{
+    NSMutableArray *locations=[self.database getLocations];
+    
+    for (DatabaseRow *location in locations) {
+        NSLog(@"latitude=%f    longitude=%f",location.latitude,location.longitude);
+    }
+    
+    
 }
 
 @end

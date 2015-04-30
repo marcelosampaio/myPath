@@ -91,11 +91,10 @@
     // Open database
     [self openDB];
     
-    // Insert location into database
     // error variable for database call
     char *err;
     
-    // sql string
+    // insert sql string
     NSString *sql=[NSString stringWithFormat:@"insert into locations (eventType, latitude, longitude, thoroughfare, postalCode, administrativeArea, country) values (%d,%f,%f,'%@','%@','%@','%@')",location.eventType,location.latitude,location.longitude,location.thoroughfare,location.postalCode,location.administrativeArea,location.country];
     
     NSLog(@"*** SQL = %@",sql);
@@ -111,6 +110,67 @@
     
     // Close database
     [self closeDB];
+}
+
+-(NSMutableArray *)getLocations{
+    // open database
+    [self openDB];
+    
+    NSMutableArray *locations=[[NSMutableArray alloc]init];
+    
+    // Get timeline from database
+    NSString *sql = [NSString stringWithFormat:@"select eventType, latitude, longitude, thoroughfare, postalCode, administrativeArea, country, eventDate from locations order by id"];
+    
+    NSLog(@"getLocations:     SQL=%@",sql);
+    
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(db, [sql UTF8String], -1, &statement, nil)==SQLITE_OK)
+    {
+        while(sqlite3_step(statement)==SQLITE_ROW)
+        {
+            // eventType
+            char *field1 = (char *) sqlite3_column_text(statement, 1);
+            NSString *stringEventType = [[NSString alloc] initWithUTF8String:field1];
+            
+            // latitude
+            char *field2 = (char *) sqlite3_column_text(statement, 2);
+            NSString *stringLatitude = [[NSString alloc] initWithUTF8String:field2];
+            
+            // longitude
+            char *field3 = (char *) sqlite3_column_text(statement, 3);
+            NSString *stringLongitude = [[NSString alloc] initWithUTF8String:field3];
+            
+            // thoroughfare
+            char *field4 = (char *) sqlite3_column_text(statement, 4);
+            NSString *stringThoroughfare = [[NSString alloc] initWithUTF8String:field4];
+            
+            // postalCode
+            char *field5 = (char *) sqlite3_column_text(statement, 5);
+            NSString *stringPostalCode = [[NSString alloc] initWithUTF8String:field5];
+
+            // administrativeArea
+            char *field6 = (char *) sqlite3_column_text(statement, 6);
+            NSString *stringAdministrativeArea = [[NSString alloc] initWithUTF8String:field6];
+
+            // country
+            char *field7 = (char *) sqlite3_column_text(statement, 7);
+            NSString *stringCountry = [[NSString alloc] initWithUTF8String:field7];
+            
+            // eventDate
+            char *field8 = (char *) sqlite3_column_text(statement, 8);
+            NSString *stringEventDate = [[NSString alloc] initWithUTF8String:field8];
+            
+            [locations addObject:[[DatabaseRow alloc]initWithEventType:[stringEventType intValue] latitude:[stringLatitude floatValue] longitude:[stringLongitude floatValue] thoroughfare:stringThoroughfare postalCode:stringPostalCode locality:stringPostalCode administrativeArea:stringAdministrativeArea country:stringCountry eventDate:stringEventDate]];
+            
+        } // End While
+        
+    }
+    // Close Database
+    [self closeDB];
+    
+    // return data
+    return locations;
+
 }
 
 
