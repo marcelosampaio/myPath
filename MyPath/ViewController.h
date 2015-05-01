@@ -14,6 +14,8 @@
 @interface ViewController : UIViewController<CLLocationManagerDelegate>
 /*! Outlet to start or stop main engine */
 @property (strong, nonatomic) IBOutlet UIButton *startStopButton;
+/*! Outlet to show all stored locations */
+@property (strong, nonatomic) IBOutlet UIButton *locationsOutlet;
 
 
 /*! Returns a Boolean value that indicates that engine status is running. */

@@ -50,6 +50,7 @@
 		9CBFC8EE1AF2659E0050D307 /* DatabaseRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseRow.h; sourceTree = "<group>"; };
 		9CBFC8EF1AF2659E0050D307 /* DatabaseRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseRow.m; sourceTree = "<group>"; };
 		9CBFC9FA1AF2B5660050D307 /* MyPath.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyPath.db; sourceTree = "<group>"; };
+		9CBFC9FC1AF40B490050D307 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +136,7 @@
 			children = (
 				9CA5936B1AE715DC001C5521 /* AppDelegate.h */,
 				9CA5936C1AE715DC001C5521 /* AppDelegate.m */,
+				9CBFC9FC1AF40B490050D307 /* AppConfig.h */,
 			);
 			name = Root;
 			sourceTree = "<group>";

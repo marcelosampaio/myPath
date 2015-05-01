@@ -8,13 +8,7 @@
 
 #import "ViewController.h"
 #import "DatabaseRow.h"
-
-#define DEFAULT_STRING_START_ACTION             @"S T A R T"
-#define DEFAULT_STRING_STOP_ACTION              @"S T O P"
-#define DEFAULT_COLOR_GREEN                     [UIColor colorWithRed:0.1 green:0.75f blue:0.1 alpha:1];
-#define DEFAULT_COLOR_GREEN_ALPHA               [UIColor colorWithRed:0.1 green:0.75f blue:0.1 alpha:0.25];
-#define DEFAULT_COLOR_RED                       [UIColor colorWithRed:1.0 green:0.15f blue:0.15 alpha:1];
-#define DEFAULT_COLOR_RED_ALPHA                 [UIColor colorWithRed:1.0 green:0.15f blue:0.15 alpha:0.25];
+#import "AppConfig.h"
 
 @interface ViewController ()
 
@@ -29,6 +23,7 @@
 
 @synthesize isOn,startStopButton;
 @synthesize database;
+@synthesize locationsOutlet;
 
 
 #pragma mark - View Life Cycle
@@ -37,14 +32,6 @@
     
     // database initial procedures
     [self databaseInitialProcedures];
-
-    // UI
-    self.isOn=NO;
-    [self.startStopButton setTitle:DEFAULT_STRING_START_ACTION forState: UIControlStateNormal];
-    self.startStopButton.layer.cornerRadius=100;
-    self.startStopButton.layer.masksToBounds=YES;
-    self.startStopButton.backgroundColor=DEFAULT_COLOR_GREEN;
-    self.view.backgroundColor=DEFAULT_COLOR_GREEN_ALPHA;
     
     // Check device screen size and configure UI
     [self configureUI];
@@ -59,6 +46,28 @@
 
 #pragma mark - UI Helper
 -(void)configureUI{
+    
+    // UI
+    self.isOn=NO;
+    
+    // start/stop button
+    [self.startStopButton setTitle:DEFAULT_STRING_START_ACTION forState: UIControlStateNormal];
+    self.startStopButton.layer.cornerRadius=100;
+    self.startStopButton.layer.masksToBounds=YES;
+    self.startStopButton.backgroundColor=DEFAULT_COLOR_GREEN;
+    
+    // locations button
+    [self.locationsOutlet setTitle:DEFAULT_STRING_SHOW_LOCATIONS_ACTION forState: UIControlStateNormal];
+    self.locationsOutlet.layer.cornerRadius=50;
+    self.locationsOutlet.layer.masksToBounds=YES;
+    self.locationsOutlet.backgroundColor=DEFAULT_COLOR_LOCATIONS_OUTLET;
+
+
+    // main view
+    self.view.backgroundColor=DEFAULT_COLOR_GREEN_ALPHA;
+
+    
+    
     
     if (self.view.frame.size.height<=480) {
         // This is a 3.5" screen size
@@ -81,6 +90,8 @@
         self.isOn=NO;
         // stop core location
         [LocationManager stopUpdatingLocation];
+        // enable locations outlet
+        self.locationsOutlet.hidden=NO;
     }else{
         [self.startStopButton setTitle:DEFAULT_STRING_STOP_ACTION forState: UIControlStateNormal];
         self.startStopButton.backgroundColor=DEFAULT_COLOR_RED;
@@ -88,6 +99,8 @@
         self.isOn=YES;
         // start Location Manager
         [self startLocationManager];
+        // disable locations outlet
+        self.locationsOutlet.hidden=YES;
     }
 }
 
@@ -163,11 +176,17 @@
 #pragma mark - Debug Facility
 -(void)debug{
     NSMutableArray *locations=[self.database getLocations];
-    
     NSLog(@"locations count=%lu",(unsigned long)locations.count);
     
     for (DatabaseRow *location in locations) {
-        NSLog(@"latitude=%f    longitude=%f",location.latitude,location.longitude);
+        NSLog(@"----------------------------------");
+//        NSLog(@"eventType=%d",location.eventType);
+        NSLog(@"thoroughfare=%@",location.thoroughfare);
+        NSLog(@"postalCode=%@",location.postalCode);
+//        NSLog(@"latitude=%f",location.latitude);
+//        NSLog(@"longitude=%f",location.longitude);
+        NSLog(@"eventDate=%@",location.eventDate);
+        NSLog(@"----------------------------------");
     }
 //    [self.database removeLocations];
     
