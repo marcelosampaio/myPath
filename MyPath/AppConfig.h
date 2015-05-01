@@ -24,4 +24,10 @@
 //#define DEFAULT_COLOR_LOCATIONS_OUTLET          [UIColor colorWithRed:0.2 green:0.5f blue:0.15 alpha:1];
 #define DEFAULT_COLOR_LOCATIONS_OUTLET          [UIColor colorWithRed:0.1 green:0.3f blue:0.05 alpha:1];
 
+
+// --------------------------
+#pragma mark - Database Constants
+#define DATABASE_IDENTIFIER                     @"MyPath.db"
+
+
 #endif

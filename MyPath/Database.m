@@ -8,9 +8,9 @@
 
 
 #import "Database.h"
+#import "AppConfig.h"
 
 
-#define DATABASE_IDENTIFIER         @"MyPath.db"
 
 @interface Database()
 
