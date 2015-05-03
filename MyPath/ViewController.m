@@ -68,7 +68,6 @@
 
     
     
-    
     if (self.view.frame.size.height<=480) {
         // This is a 3.5" screen size
 
@@ -141,11 +140,8 @@
 
             placemark=placemarks.lastObject;
 
-            // format database row object
-            DatabaseRow *databaseRow=[[DatabaseRow alloc]initWithEventType:0 latitude:location.coordinate.latitude longitude:location.coordinate.longitude thoroughfare:placemark.thoroughfare postalCode:placemark.postalCode locality:@"" administrativeArea:placemark.administrativeArea country:placemark.country eventDate:nil];
-            
             // insert row into location's database
-            [self.database insertLocation:databaseRow];
+            [self.database insertLocation:[[DatabaseRow alloc]initWithEventType:0 latitude:location.coordinate.latitude longitude:location.coordinate.longitude thoroughfare:placemark.thoroughfare postalCode:placemark.postalCode locality:@"" administrativeArea:placemark.administrativeArea country:placemark.country eventDate:nil]];
             
             
         }else {
