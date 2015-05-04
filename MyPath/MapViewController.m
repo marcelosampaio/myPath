@@ -18,10 +18,17 @@
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // set map delegate
+    self.map.delegate=self;
 }
 
 
+#pragma mark - UI Actions
+- (IBAction)close:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
 
 
 #pragma mark - Status Bar

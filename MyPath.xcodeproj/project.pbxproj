@@ -20,6 +20,7 @@
 		9CBFC9FB1AF2B5780050D307 /* MyPath.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CBFC9FA1AF2B5660050D307 /* MyPath.db */; };
 		9CBFC9FF1AF6E94B0050D307 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFC9FE1AF6E94B0050D307 /* LocationsViewController.m */; };
 		9CBFCA021AF71DC80050D307 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFCA011AF71DC80050D307 /* MapViewController.m */; };
+		9CBFCA041AF7B8C10050D307 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBFCA031AF7B8C10050D307 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		9CBFC9FE1AF6E94B0050D307 /* LocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
 		9CBFCA001AF71DC80050D307 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		9CBFCA011AF71DC80050D307 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		9CBFCA031AF7B8C10050D307 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBFCA041AF7B8C10050D307 /* MapKit.framework in Frameworks */,
 				9CBFC8E51AF261F80050D307 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +183,7 @@
 		9CBFC8E61AF262040050D307 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CBFCA031AF7B8C10050D307 /* MapKit.framework */,
 				9CBFC8E41AF261F80050D307 /* libsqlite3.dylib */,
 			);
 			name = Frameworks;
