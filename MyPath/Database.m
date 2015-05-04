@@ -119,7 +119,7 @@
     NSMutableArray *locations=[[NSMutableArray alloc]init];
     
     // Get timeline from database
-    NSString *sql = [NSString stringWithFormat:@"select eventType, latitude, longitude, thoroughfare, postalCode, administrativeArea, country, eventDate from locations order by id"];
+    NSString *sql = [NSString stringWithFormat:@"select eventType, latitude, longitude, thoroughfare, postalCode, administrativeArea, country, eventDate from locations order by id desc"];
 
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(db, [sql UTF8String], -1, &statement, nil)==SQLITE_OK)

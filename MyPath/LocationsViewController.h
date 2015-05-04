@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LocationsViewController : UIViewController
+@interface LocationsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *closeOutlet;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+
+/*! Array with locations */
+@property (nonatomic, strong) NSMutableArray *locations;
+
+
 
 @end

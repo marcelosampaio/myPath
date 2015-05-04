@@ -22,6 +22,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>MyPath necessita de acesso ao GPS para um funcionamento perfeito.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Este app necessita dos serviços de localização para seu perfeito funcionamento.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
@@ -37,12 +41,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>MyPath necessita de acesso ao GPS para um funcionamento perfeito.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Este app necessita dos serviços de localização para seu perfeito funcionamento.</string>
 </dict>
 </plist>

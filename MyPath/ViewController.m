@@ -39,8 +39,8 @@
     // Check device screen size and configure UI
     [self configureUI];
     
-    // Debug functionality
-    [self debug];
+//    // Debug functionality
+//    [self debug];
     
     
     
@@ -179,24 +179,24 @@
     return YES;
 }
 
-
-#pragma mark - Debug Facility
--(void)debug{
-    NSMutableArray *locations=[self.database getLocations];
-    NSLog(@"locations count=%lu",(unsigned long)locations.count);
-    
-    for (DatabaseRow *location in locations) {
-        NSLog(@"----------------------------------");
-//        NSLog(@"eventType=%d",location.eventType);
-        NSLog(@"thoroughfare=%@",location.thoroughfare);
-        NSLog(@"postalCode=%@",location.postalCode);
-//        NSLog(@"latitude=%f",location.latitude);
-//        NSLog(@"longitude=%f",location.longitude);
-        NSLog(@"eventDate=%@",location.eventDate);
-        NSLog(@"----------------------------------");
-    }
-//    [self.database removeLocations];
-    
-}
+//
+//#pragma mark - Debug Facility
+//-(void)debug{
+//    NSMutableArray *locations=[self.database getLocations];
+//    NSLog(@"locations count=%lu",(unsigned long)locations.count);
+//    
+//    for (DatabaseRow *location in locations) {
+//        NSLog(@"----------------------------------");
+////        NSLog(@"eventType=%d",location.eventType);
+//        NSLog(@"thoroughfare=%@",location.thoroughfare);
+//        NSLog(@"postalCode=%@",location.postalCode);
+////        NSLog(@"latitude=%f",location.latitude);
+////        NSLog(@"longitude=%f",location.longitude);
+//        NSLog(@"eventDate=%@",location.eventDate);
+//        NSLog(@"----------------------------------");
+//    }
+////    [self.database removeLocations];
+//    
+//}
 
 @end
