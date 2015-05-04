@@ -35,7 +35,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5p8-pr-b6H" kind="modal" identifier="showLocations" id="vWT-Fa-uDN"/>
+                                    <segue destination="5p8-pr-b6H" kind="push" identifier="showLocations" id="zhB-Uk-ztq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -83,7 +83,7 @@
                                 <rect key="frame" x="0.0" y="50" width="320" height="518"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="O6a-NF-WMH" detailTextLabel="1KE-dJ-Zfl" style="IBUITableViewCellStyleSubtitle" id="PpL-Jn-INe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="O6a-NF-WMH" detailTextLabel="1KE-dJ-Zfl" style="IBUITableViewCellStyleSubtitle" id="PpL-Jn-INe">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PpL-Jn-INe" id="EWa-sG-8VE">
@@ -103,6 +103,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="iXa-ON-LO1" kind="push" identifier="showMap" id="tAE-28-Nt3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -117,7 +120,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vl9-VW-ml6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1352" y="290"/>
+            <point key="canvasLocation" x="1310" y="264"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="whG-w7-xuK">
+            <objects>
+                <viewController id="iXa-ON-LO1" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n3U-7B-Yu5"/>
+                        <viewControllerLayoutGuide type="bottom" id="u26-X4-RkZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TfK-M0-hsE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Jmz-Z9-uEh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1QY-fH-rVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1825" y="264"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hQL-wl-aEL">
