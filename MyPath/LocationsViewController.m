@@ -84,10 +84,9 @@
     
     DatabaseRow *row=[self.locations objectAtIndex:indexPath.row];
     
-    cell.textLabel.text=[NSString stringWithFormat:@"%@ %@",row.thoroughfare,row.postalCode];
+    cell.textLabel.text=[NSString stringWithFormat:@"%@ %@ %@",row.thoroughfare,row.postalCode,row.administrativeArea];
     cell.detailTextLabel.text=row.eventDate;
     
-    //    cell.textLabel.backgroundColor=disclosureColor;
     cell.textLabel.textColor=[UIColor whiteColor];
     cell.detailTextLabel.textColor=[UIColor whiteColor];
     
