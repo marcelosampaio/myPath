@@ -29,6 +29,9 @@
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    // hide navigation bar
+    [self.navigationController.navigationBar setHidden:YES];
     
     // database initial procedures
     [self databaseInitialProcedures];
@@ -39,6 +42,14 @@
     // Debug functionality
     [self debug];
     
+    
+    
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+
     
     
     

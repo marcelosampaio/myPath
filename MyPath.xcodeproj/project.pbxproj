@@ -18,6 +18,7 @@
 		9CBFC8ED1AF263720050D307 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFC8EC1AF263720050D307 /* Database.m */; };
 		9CBFC8F01AF2659E0050D307 /* DatabaseRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFC8EF1AF2659E0050D307 /* DatabaseRow.m */; };
 		9CBFC9FB1AF2B5780050D307 /* MyPath.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CBFC9FA1AF2B5660050D307 /* MyPath.db */; };
+		9CBFC9FF1AF6E94B0050D307 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFC9FE1AF6E94B0050D307 /* LocationsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		9CBFC8EF1AF2659E0050D307 /* DatabaseRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseRow.m; sourceTree = "<group>"; };
 		9CBFC9FA1AF2B5660050D307 /* MyPath.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyPath.db; sourceTree = "<group>"; };
 		9CBFC9FC1AF40B490050D307 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
+		9CBFC9FD1AF6E94B0050D307 /* LocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
+		9CBFC9FE1AF6E94B0050D307 /* LocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 			children = (
 				9CA5936E1AE715DC001C5521 /* ViewController.h */,
 				9CA5936F1AE715DC001C5521 /* ViewController.m */,
+				9CBFC9FD1AF6E94B0050D307 /* LocationsViewController.h */,
+				9CBFC9FE1AF6E94B0050D307 /* LocationsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				9CA5936D1AE715DC001C5521 /* AppDelegate.m in Sources */,
 				9CBFC8ED1AF263720050D307 /* Database.m in Sources */,
 				9CA5936A1AE715DC001C5521 /* main.m in Sources */,
+				9CBFC9FF1AF6E94B0050D307 /* LocationsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
