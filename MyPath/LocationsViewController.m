@@ -10,6 +10,7 @@
 #import "AppConfig.h"
 #import "Database.h"
 #import "DatabaseRow.h"
+#import "MapViewController.h"
 
 @interface LocationsViewController ()
 
@@ -85,7 +86,7 @@
     DatabaseRow *row=[self.locations objectAtIndex:indexPath.row];
     
     cell.textLabel.text=[NSString stringWithFormat:@"%@ %@ %@",row.thoroughfare,row.postalCode,row.administrativeArea];
-    cell.detailTextLabel.text=row.eventDate;
+    cell.detailTextLabel.text=[NSString stringWithFormat:@"%@     (%f,%f)",row.eventDate,row.latitude,row.longitude];
     
     cell.textLabel.textColor=[UIColor whiteColor];
     cell.detailTextLabel.textColor=[UIColor whiteColor];
@@ -94,6 +95,20 @@
     
     
     return cell;
+}
+
+#pragma mark - Navigation
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showMap"]) {
+        
+        // get indexPath of selected row
+        NSIndexPath *indexPath=[self.tableView indexPathForSelectedRow];
+        
+        // Passing database row object to map view controller
+        MapViewController *mapViewController= (MapViewController *)segue.destinationViewController;
+        mapViewController.location=[self.locations objectAtIndex:indexPath.row];
+        
+    }
 }
 
 @end

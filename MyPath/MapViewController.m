@@ -8,12 +8,13 @@
 
 #import "MapViewController.h"
 
+
 @interface MapViewController ()
 
 @end
 
 @implementation MapViewController
-
+@synthesize location;
 
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
@@ -21,6 +22,9 @@
     
     // set map delegate
     self.map.delegate=self;
+    // plot location on map
+    [self plotLocation];
+    
 }
 
 
@@ -30,10 +34,14 @@
 
 }
 
-
 #pragma mark - Status Bar
 -(BOOL)prefersStatusBarHidden{
     return YES;
 }
 
+#pragma mark - Location
+-(void)plotLocation{
+    NSLog(@"location=%@",self.location.thoroughfare);
+
+}
 @end

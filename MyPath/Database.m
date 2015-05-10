@@ -181,7 +181,6 @@
     
     // insert sql string
     NSString *sql=@"delete from locations";
-    NSLog(@"*** SQL = %@",sql);
     
     // execute database command
     if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
