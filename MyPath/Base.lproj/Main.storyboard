@@ -137,7 +137,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="hybrid" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WZ2-KY-xfy">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <connections>
-                                    <outlet property="delegate" destination="iXa-ON-LO1" id="h2I-GT-tuK"/>
+                                    <outlet property="delegate" destination="iXa-ON-LO1" id="Plu-GD-fAQ"/>
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bef-MT-lj7">
@@ -154,6 +154,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jmz-Z9-uEh"/>
+                    <connections>
+                        <outlet property="map" destination="WZ2-KY-xfy" id="Fcq-WC-0Eg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1QY-fH-rVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

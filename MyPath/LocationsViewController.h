@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 
-/*! Array with locations */
+/*! Array with locations (DatabaseRow)*/
 @property (nonatomic, strong) NSMutableArray *locations;
 
 
