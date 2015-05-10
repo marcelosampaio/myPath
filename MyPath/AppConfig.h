@@ -20,7 +20,7 @@
 
 // Map Kit
 #define DEFAULT_MAPKIT_MAXSPAN                  0.025f
-#define DEFAULT_MAPKIT_DISTANCE_FROM_CENTER     1000.0
+#define DEFAULT_MAPKIT_DISTANCE_FROM_CENTER     800.0
 
 // Color
 #define DEFAULT_COLOR_GREEN                     [UIColor colorWithRed:0.1f green:0.75f blue:0.1f alpha:1.00f];
