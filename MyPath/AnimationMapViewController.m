@@ -23,26 +23,32 @@
 @synthesize locations;
 @synthesize animationOutlet;
 @synthesize locationCounter;
-
+@synthesize engineTimer;
+@synthesize addressOutlet,dateOutlet;
 
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 
     // load all data
     Database *database=[[Database alloc]init];
     self.locations=[[NSMutableArray alloc]init];
-    self.locations=[database getLocations];
+    self.locations=[database getLocationsOrdered:YES];
+    
+    // Reset labels
+    self.addressOutlet.text=@"";
+    self.dateOutlet.text=@"";
     
     locationCounter=0;
+    
+    // Set up engine main timer
+    self.engineTimer=[NSTimer scheduledTimerWithTimeInterval:0.30f target:self selector:@selector(pulse) userInfo:nil repeats:YES];
+    // start up engine timer
+    [self.engineTimer fire];
+    
 
-}
-
-
-#pragma mark - UI Actions
-- (IBAction)animation:(id)sender {
-    // animation engine
-    [self animationEngine];
 }
 
 
@@ -121,14 +127,43 @@
     // Focus on map
     CLLocationCoordinate2D loc = {location.latitude,location.longitude};
     
+    // Load labels
+    self.addressOutlet.text=[NSString stringWithFormat:@"%@ %@ %@",location.thoroughfare,location.postalCode,location.administrativeArea];
+    self.dateOutlet.text=location.eventDate;
+    
+    
     [self.map setRegion:MKCoordinateRegionMakeWithDistance(loc, DEFAULT_MAPKIT_DISTANCE_FROM_CENTER, DEFAULT_MAPKIT_DISTANCE_FROM_CENTER) animated:YES];
     
-    // Open up Annotation View
-    [self.map selectAnnotation:mapAnnotation animated:YES];
+//    // Open up Annotation View
+//    [self.map selectAnnotation:mapAnnotation animated:YES];
     
     
 }
 
+
+#pragma mark - Timer Methods
+-(void)pulse{
+    
+    if (locationCounter>self.locations.count) {
+        [self.engineTimer invalidate];
+        return;
+    }
+    
+    
+    DatabaseRow *location=[[DatabaseRow alloc]init];
+    location=[self.locations objectAtIndex:locationCounter];
+    [self plotLocationWithObject:location];
+    
+    NSLog(@"pulsing... %d",locationCounter);
+
+    locationCounter++;
+    
+    
+}
+
+- (UIStatusBarStyle) preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
 
 
 @end

@@ -50,7 +50,7 @@
     self.locations=[[NSMutableArray alloc]init];
     
     Database *database=[[Database alloc]init];
-    self.locations=[database getLocations];
+    self.locations=[database getLocationsOrdered:NO];
     
     [self.tableView reloadData];
     
