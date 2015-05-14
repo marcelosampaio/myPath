@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *startStopButton;
 /*! Outlet to show all stored locations */
 @property (strong, nonatomic) IBOutlet UIButton *locationsOutlet;
+/*! Outlet to show map animations with stored data */
+@property (strong, nonatomic) IBOutlet UIButton *animationOutlet;
 
 
 /*! Returns a Boolean value that indicates that engine status is running. */

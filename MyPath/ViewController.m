@@ -23,7 +23,7 @@
 
 @synthesize isOn,startStopButton;
 @synthesize database;
-@synthesize locationsOutlet;
+@synthesize locationsOutlet,animationOutlet;
 
 
 #pragma mark - View Life Cycle
@@ -73,6 +73,13 @@
     self.locationsOutlet.layer.masksToBounds=YES;
     self.locationsOutlet.backgroundColor=DEFAULT_COLOR_LOCATIONS_OUTLET;
 
+    // animation button
+    [self.animationOutlet setTitle:DEFAULT_STRING_SHOW_ANIMATIONS_ACTION forState: UIControlStateNormal];
+    self.animationOutlet.layer.cornerRadius=50;
+    self.animationOutlet.layer.masksToBounds=YES;
+    self.animationOutlet.backgroundColor=DEFAULT_COLOR_ANIMATION_OUTLET;
+    
+    
 
     // main view
     self.view.backgroundColor=DEFAULT_COLOR_GREEN_ALPHA;
@@ -102,6 +109,8 @@
         [LocationManager stopUpdatingLocation];
         // enable locations outlet
         self.locationsOutlet.hidden=NO;
+        // enable animation outlet
+        self.animationOutlet.hidden=NO;
     }else{
         [self.startStopButton setTitle:DEFAULT_STRING_STOP_ACTION forState: UIControlStateNormal];
         self.startStopButton.backgroundColor=DEFAULT_COLOR_RED;
@@ -111,8 +120,18 @@
         [self startLocationManager];
         // disable locations outlet
         self.locationsOutlet.hidden=YES;
+        // disable animation outlet
+        self.animationOutlet.hidden=YES;
     }
 }
+- (IBAction)animation:(id)sender {
+    
+}
+
+
+
+
+
 
 #pragma mark - Location Manager Brain
 -(void)startLocationManager {
