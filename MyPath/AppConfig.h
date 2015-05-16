@@ -24,6 +24,9 @@
 #define DEFAULT_MAPKIT_DISTANCE_FROM_CENTER     800.0
 
 
+#pragma mark - Device Information
+#define DEFAULT_SMALL_SCREEN_SIZE_DEVICE        480
+
 
 
 #pragma mark - Color Constants

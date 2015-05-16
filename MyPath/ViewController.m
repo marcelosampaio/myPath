@@ -85,10 +85,8 @@
     self.view.backgroundColor=DEFAULT_COLOR_GREEN_ALPHA;
 
     
-    
-    if (self.view.frame.size.height<=480) {
-        // This is a 3.5" screen size
-
+    // Check if it is a 3.5 inch screen size device
+    if (self.view.frame.size.height<=DEFAULT_SMALL_SCREEN_SIZE_DEVICE) {
         [UIView animateWithDuration:0.8 animations:^{
             // Animations
             self.startStopButton.center=CGPointMake(self.startStopButton.center.x, 0);
@@ -101,27 +99,39 @@
 #pragma mark - UI Actions
 - (IBAction)startStopAction:(id)sender {
     if (self.isOn) {
+
+        // UI
         [self.startStopButton setTitle:DEFAULT_STRING_START_ACTION forState: UIControlStateNormal];
         self.startStopButton.backgroundColor=DEFAULT_COLOR_GREEN;
         self.view.backgroundColor=DEFAULT_COLOR_GREEN_ALPHA;
+        
+        // control
         self.isOn=NO;
+
         // stop core location
         [LocationManager stopUpdatingLocation];
-        // enable locations outlet
+
+        // enable UI outlets
         self.locationsOutlet.hidden=NO;
-        // enable animation outlet
         self.animationOutlet.hidden=NO;
+        
     }else{
+        
+        // UI
         [self.startStopButton setTitle:DEFAULT_STRING_STOP_ACTION forState: UIControlStateNormal];
         self.startStopButton.backgroundColor=DEFAULT_COLOR_RED;
         self.view.backgroundColor=DEFAULT_COLOR_RED_ALPHA;
+        
+        // control
         self.isOn=YES;
+
         // start Location Manager
         [self startLocationManager];
-        // disable locations outlet
+
+        // disable UI outlets
         self.locationsOutlet.hidden=YES;
-        // disable animation outlet
         self.animationOutlet.hidden=YES;
+        
     }
 }
 - (IBAction)animation:(id)sender {
