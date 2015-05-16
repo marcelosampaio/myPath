@@ -123,15 +123,13 @@
     
     // add annotation to the map
     [self.map addAnnotations:annotations];
-    
-    // Focus on map
-    CLLocationCoordinate2D loc = {location.latitude,location.longitude};
-    
+
     // Load labels
     self.addressOutlet.text=[NSString stringWithFormat:@"%@ %@ %@",location.thoroughfare,location.postalCode,location.administrativeArea];
     self.dateOutlet.text=location.eventDate;
     
-    
+    // Focus on map
+    CLLocationCoordinate2D loc = {location.latitude,location.longitude};
     [self.map setRegion:MKCoordinateRegionMakeWithDistance(loc, DEFAULT_MAPKIT_DISTANCE_FROM_CENTER, DEFAULT_MAPKIT_DISTANCE_FROM_CENTER) animated:YES];
     
 //    // Open up Annotation View
