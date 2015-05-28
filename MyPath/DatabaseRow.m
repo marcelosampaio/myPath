@@ -8,6 +8,7 @@
 
 #import "DatabaseRow.h"
 
+
 @implementation DatabaseRow
 
 @synthesize eventDate,eventType,latitude,longitude,thoroughfare,postalCode,locality,administrativeArea,country;

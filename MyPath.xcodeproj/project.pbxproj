@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C22F0CF1B04F4D3001033D8 /* AnimationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C22F0CE1B04F4D3001033D8 /* AnimationMapViewController.m */; };
+		9C2C15921B177AC700143521 /* AppSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C15911B177AC700143521 /* AppSingleton.m */; };
 		9C9602731AFFFB7000C5CCDD /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9602721AFFFB7000C5CCDD /* MapAnnotation.m */; };
 		9CA5936A1AE715DC001C5521 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA593691AE715DC001C5521 /* main.m */; };
 		9CA5936D1AE715DC001C5521 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA5936C1AE715DC001C5521 /* AppDelegate.m */; };
@@ -38,6 +39,8 @@
 /* Begin PBXFileReference section */
 		9C22F0CD1B04F4D3001033D8 /* AnimationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationMapViewController.h; sourceTree = "<group>"; };
 		9C22F0CE1B04F4D3001033D8 /* AnimationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationMapViewController.m; sourceTree = "<group>"; };
+		9C2C15901B177AC700143521 /* AppSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSingleton.h; sourceTree = "<group>"; };
+		9C2C15911B177AC700143521 /* AppSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSingleton.m; sourceTree = "<group>"; };
 		9C9602711AFFFB7000C5CCDD /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		9C9602721AFFFB7000C5CCDD /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		9CA593641AE715DB001C5521 /* MyPath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPath.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +209,8 @@
 				9CBFC8EF1AF2659E0050D307 /* DatabaseRow.m */,
 				9C9602711AFFFB7000C5CCDD /* MapAnnotation.h */,
 				9C9602721AFFFB7000C5CCDD /* MapAnnotation.m */,
+				9C2C15901B177AC700143521 /* AppSingleton.h */,
+				9C2C15911B177AC700143521 /* AppSingleton.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				9CA5936A1AE715DC001C5521 /* main.m in Sources */,
 				9CBFC9FF1AF6E94B0050D307 /* LocationsViewController.m in Sources */,
 				9CBFCA021AF71DC80050D307 /* MapViewController.m in Sources */,
+				9C2C15921B177AC700143521 /* AppSingleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

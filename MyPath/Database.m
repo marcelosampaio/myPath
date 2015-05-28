@@ -9,7 +9,7 @@
 
 #import "Database.h"
 #import "AppConfig.h"
-
+#import "AppSingleton.h"
 
 
 @interface Database()

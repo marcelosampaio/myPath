@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "DatabaseRow.h"
 #import "AppConfig.h"
+#import "AppSingleton.h"
 
 @interface ViewController ()
 
@@ -115,6 +116,9 @@
         self.locationsOutlet.hidden=NO;
         self.animationOutlet.hidden=NO;
         
+        // Set up global control
+        [AppSingleton instance].timelineControl=@"1";
+        
     }else{
         
         // UI
@@ -131,6 +135,9 @@
         // disable UI outlets
         self.locationsOutlet.hidden=YES;
         self.animationOutlet.hidden=YES;
+        
+        // Set up global control
+        [AppSingleton instance].timelineControl=@"0";
         
     }
 }
@@ -181,7 +188,12 @@
             placemark=placemarks.lastObject;
 
             // insert row into location's database
-            [self.database insertLocation:[[DatabaseRow alloc]initWithEventType:0 latitude:location.coordinate.latitude longitude:location.coordinate.longitude thoroughfare:placemark.thoroughfare postalCode:placemark.postalCode locality:@"" administrativeArea:placemark.administrativeArea country:placemark.country eventDate:nil]];
+            [self.database insertLocation:[[DatabaseRow alloc]initWithEventType:[[AppSingleton instance].timelineControl intValue] latitude:location.coordinate.latitude longitude:location.coordinate.longitude thoroughfare:placemark.thoroughfare postalCode:placemark.postalCode locality:@"" administrativeArea:placemark.administrativeArea country:placemark.country eventDate:nil]];
+            
+            // Reset initial control flag
+            if ([[AppSingleton instance].timelineControl isEqualToString:@"0"]) {
+                [AppSingleton instance].timelineControl=@"1";
+            }
             
             
         }else {
